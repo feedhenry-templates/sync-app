@@ -10,9 +10,10 @@ angular.module('app.services', [])
     return result.reverse();
   }
 
-  function unwrap(obj, id) {
+  function unwrap(value, id) {
+      var obj = value.data;
       obj.id = id;
-      obj.moment = moment(obj.data.created).fromNow();
+      obj.moment = moment(obj.created).fromNow();
       return obj;
   }
 
@@ -97,13 +98,12 @@ angular.module('app.services', [])
     },
     update: function(item) {
       return promiseWrap(function(success, fail) {
-        $fh.sync.doUpdate(datasetId, item.id, item.data, success, fail);
+        $fh.sync.doUpdate(datasetId, item.id, item, success, fail);
       });
     },
     save: function(item) {
-      item.data.created = new Date().getTime();
       return promiseWrap(function(success, fail) {
-        $fh.sync.doCreate(datasetId, item.data, success, fail);
+        $fh.sync.doCreate(datasetId, item, success, fail);
       });
     }
   };

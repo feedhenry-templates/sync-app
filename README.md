@@ -1,3 +1,7 @@
+NO LONGER MAINTAINED SEE https://github.com/feedhenry-templates/sync-cordova-app for a more up to date app
+==================
+
+
 FeedHenry Data Sync Tutorial 
 ============================
 
